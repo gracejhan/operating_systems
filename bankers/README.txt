@@ -2,9 +2,9 @@ README
 
 OS Lab3 - Banker
 
-Name: Grace(Jungwoo) Han
-Email: jh5990@nyu.edu
 Submission Date: March 27, 2018
+
+* Please refer to banker.pdf for task description
 
 * To compile and run, follow the steps.
 
