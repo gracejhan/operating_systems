@@ -2,13 +2,11 @@ README
 
 OS Lab2 - Scheduling
 
-Name: Jungwoo Han
-Email: jh5990@nyu.edu
+#Please refer to scheduling.pdf for description.
 
 
-* To compile and run, follow the steps.
+#To compile and run, follow the steps.
 
-/*** Don't forget to load the gcc module ***/
 
 > module load gcc-6.2.0
 
