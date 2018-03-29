@@ -1,0 +1,90 @@
+class Resource {
+public:
+    Resource();
+
+    int resourceID;
+    int totalUnit;
+    int availUnit;
+};
+
+class Works {
+public:
+    Works();
+    string instruction;
+    int task;
+    int delay;
+    int resource;
+    int unit;
+};
+
+class Task {
+public:
+    Task();
+
+    int taskID;
+    int work;               // start from 0(initiate) to workList.size()(terminate)
+    int delayLeft;
+    int reqUnit;
+    int reqSrcID;
+
+    bool blockHandled;
+    bool onblock;
+    bool aborted;
+    bool willBeAborted;
+
+    vector<int> initClaim;  // Task's initial claim for each resource type ***
+    vector<int> resList;    // Units of each resource type the task is currently holding ***
+    vector<int> accumList;
+
+    int timeTakenFIFO;
+    int timeWaitingFIFO;
+    int timeTakenBanker;
+    int timeWaitingBanker;
+
+    vector<Works> workList;
+    bool isTerminated;
+
+};
+
+vector<Task*> taskList;
+: all the tasks are stored in this vector
+    >> {task1, task2}
+
+vector<Resource*> resourceList;
+: all the resources are stored in this vector
+    >> {resource1}
+
+vector<Works> workList;
+: every task has a vector that stores the work list
+    >> task1->workList = {work1, work2, work3,
+        work4, work5}
+
+task->resList;
+: stores the units of the resources that the
+    task is holding
+    >> (init) {0, 0, ...,0}
+
+Increment accumList vector
+1. init is a zero vector
+2. Whenever request is granted
+
+
+**Safety Check**
+vector<int> initClaim;  // Task's initial claim for each resource type ***
+vector<int> resList;    // Units of each resource type the task is currently holding ***
+
+resourceCap[i];
+: size == numResources
+  stores the capacity of each resource in order
+  of resource id
+    >> resourceCap[0] = [4]
+
+
+When to check for safe state
+1. When a task requests
+    If unsafe -> block it
+    If safe -> grant resource
+2. When going through blocked list for unblock
+    If unsafe -> leave it blocked
+    If safe -> unblock it, grant resource
+
