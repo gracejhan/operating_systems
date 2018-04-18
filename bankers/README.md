@@ -6,10 +6,9 @@ The goal of this lab is to do resource allocation using both an optimistic resou
 Please refer to banker.pdf for more detailed task description
 
 ## Steps to run the program
-'''
-module load gcc-6.2.0
 
-g++ -std=c++11 banker.cpp -o main
+> module load gcc-6.2.0
 
-./main input-X.txt
-'''
+> g++ -std=c++11 banker.cpp -o main
+
+> ./main input-X.txt
